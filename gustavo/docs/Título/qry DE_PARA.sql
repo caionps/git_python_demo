@@ -1,0 +1,26 @@
+-- tipo de transação
+SELECT RCTA.NAME FROM RA_CUST_TRX_TYPES_ALL@ebsunifor RCTA 
+WHERE RCTA.CREATED_BY <> -1 AND END_DATE IS NULL 
+and name ='INSCR_PROC_SELETIVO';
+
+
+SELECT RCTA.NAME, rcta.* FROM RA_CUST_TRX_TYPES_ALL@ebsunifor RCTA 
+WHERE RCTA.CREATED_BY <> -1 AND END_DATE IS NULL ;
+
+--metodo de recebimento
+SELECT ARM.NAME FROM AR_RECEIPT_METHODS@ebsunifor ARM 
+WHERE ARM.CREATED_BY <> 1 
+AND ARM.END_DATE IS NULL 
+and name = 'BRAD_0452_311356_CART'
+;
+SELECT ARM.NAME, ARM.* 
+FROM AR_RECEIPT_METHODS@ebsunifor ARM 
+WHERE ARM.CREATED_BY <> 1 
+AND ARM.END_DATE IS NULL 
+;
+select * from ca.banco B INNER JOIN CA.ctr_banco_agencia_carteira C
+ON B.NR_BANCO = C.NR_BANCO
+;
+select DISTINCT T.CD_AGENTE_COBRADOR from ca.CTR_TITULO T;
+
+select * from ca.d_v_fat_meio_cobranca;

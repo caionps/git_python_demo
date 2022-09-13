@@ -1,0 +1,239 @@
+--set SERVEROUTPUT ON
+DECLARE
+  P_NR_MATRICULA NUMBER;
+  P_ID_PESSOA NUMBER;
+  P_ORGANIZATION_REC CA.PK_CAD_CLIENTE_EBS_PLT.ORGANIZATION_REC;
+  P_CUST_ACCOUNT_REC CA.PK_CAD_CLIENTE_EBS_PLT.CUST_ACCOUNT_REC;
+  P_LOCATION_REC CA.PK_CAD_CLIENTE_EBS_PLT.LOCATION_REC;
+  P_CUST_ACCT_SITE_REC CA.PK_CAD_CLIENTE_EBS_PLT.CUST_ACCT_SITE_REC;
+  P_CUST_SITE_USE_REC CA.PK_CAD_CLIENTE_EBS_PLT.CUST_SITE_USE_REC;
+  P_CUSTOMER_PROFILE_REC CA.PK_CAD_CLIENTE_EBS_PLT.CUSTOMER_PROFILE_REC;
+  P_PAYMENT_METHOD_REC CA.PK_CAD_CLIENTE_EBS_PLT.PAYMENT_METHOD_REC;
+  P_PERSON_REC CA.PK_CAD_CLIENTE_EBS_PLT.PERSON_REC;
+  P_RELATIONSHIP_REC CA.PK_CAD_CLIENTE_EBS_PLT.RELATIONSHIP_REC;
+  P_CONTACT_POINT_REC CA.PK_CAD_CLIENTE_EBS_PLT.CONTACT_POINT_REC;
+  P_PHONE_REC CA.PK_CAD_CLIENTE_EBS_PLT.PHONE_REC;
+  P_EMAIL_REC CA.PK_CAD_CLIENTE_EBS_PLT.EMAIL_REC;
+  p_exit_rec  ca.pk_cad_cliente_ebs_plt.exit_rec;
+  P_FG_RETORNO VARCHAR2(200);
+  P_DS_RETORNO VARCHAR2(200);
+BEGIN
+  P_NR_MATRICULA := 63100112; --1823429--  MATRICULA: 63100112 ID PESSOA: 378147
+  P_ID_PESSOA := 378147;  --209880;
+  -- Modify the code to initialize the variable
+  -- P_ORGANIZATION_REC := NULL;
+  -- Modify the code to initialize the variable
+  -- P_CUST_ACCOUNT_REC := NULL;
+  -- Modify the code to initialize the variable
+  -- P_LOCATION_REC := NULL;
+  -- Modify the code to initialize the variable
+  -- P_CUST_ACCT_SITE_REC := NULL;
+  -- Modify the code to initialize the variable
+  -- P_CUST_SITE_USE_REC := NULL;
+  -- Modify the code to initialize the variable
+  -- P_CUSTOMER_PROFILE_REC := NULL;
+  -- Modify the code to initialize the variable
+  -- P_PAYMENT_METHOD_REC := NULL;
+  -- Modify the code to initialize the variable
+  -- P_PERSON_REC := NULL;
+  -- Modify the code to initialize the variable
+  -- P_RELATIONSHIP_REC := NULL;
+  -- Modify the code to initialize the variable
+  -- P_CONTACT_POINT_REC := NULL;
+  -- Modify the code to initialize the variable
+  -- P_PHONE_REC := NULL;
+  -- Modify the code to initialize the variable
+  -- P_EMAIL_REC := NULL;
+
+  ca.PK_CAD_CLIENTE_EBS_CLC.P_INTEGRA_CLIENTE_EBS(    --PK_CAD_CLIENTE_EBS_CLC  PK_CAD_CLIENTE_EBS_API
+    P_NR_MATRICULA => P_NR_MATRICULA,
+    P_ID_PESSOA => P_ID_PESSOA,
+    P_ORGANIZATION_REC => P_ORGANIZATION_REC,
+    P_CUST_ACCOUNT_REC => P_CUST_ACCOUNT_REC,
+    P_LOCATION_REC => P_LOCATION_REC,
+    P_CUST_ACCT_SITE_REC => P_CUST_ACCT_SITE_REC,
+    P_CUST_SITE_USE_REC => P_CUST_SITE_USE_REC,
+    P_CUSTOMER_PROFILE_REC => P_CUSTOMER_PROFILE_REC,
+    P_PAYMENT_METHOD_REC => P_PAYMENT_METHOD_REC,
+    P_PERSON_REC => P_PERSON_REC,
+    P_RELATIONSHIP_REC => P_RELATIONSHIP_REC,
+    P_CONTACT_POINT_REC => P_CONTACT_POINT_REC,
+    P_PHONE_REC => P_PHONE_REC,
+    P_EMAIL_REC => P_EMAIL_REC,
+    p_exit_rec  => p_exit_rec,
+    P_FG_RETORNO => P_FG_RETORNO,
+    P_DS_RETORNO => P_DS_RETORNO
+  );
+
+---------------------------------------------------------------------------------------------------
+--p_organization_rec
+---------------------------------------------------------------------------------------------------
+DBMS_OUTPUT.PUT_LINE('p_organization_rec.organization_type         : '||p_organization_rec.organization_type          );
+DBMS_OUTPUT.PUT_LINE('p_organization_rec.organization_name         : '||p_organization_rec.organization_name           );
+DBMS_OUTPUT.PUT_LINE('p_organization_rec.organization_name_phonetic: '||p_organization_rec.organization_name_phonetic );
+DBMS_OUTPUT.PUT_LINE('p_organization_rec.orig_system_reference     : '||p_organization_rec.orig_system_reference      );
+
+---------------------------------------------------------------------------------------------------
+--p_cust_account_rec
+---------------------------------------------------------------------------------------------------
+DBMS_OUTPUT.PUT_LINE('p_cust_account_rec.account_number        : '||p_cust_account_rec.account_number          );
+DBMS_OUTPUT.PUT_LINE('p_cust_account_rec.status                : '||p_cust_account_rec.status                  );
+DBMS_OUTPUT.PUT_LINE('p_cust_account_rec.customer_type         : '||p_cust_account_rec.customer_type           );
+DBMS_OUTPUT.PUT_LINE('p_cust_account_rec.attribute1            : '||p_cust_account_rec.attribute1              );
+DBMS_OUTPUT.PUT_LINE('p_cust_account_rec.orig_system_reference : '||p_cust_account_rec.orig_system_reference   );
+
+---------------------------------------------------------------------------------------------------
+--p_location_rec
+---------------------------------------------------------------------------------------------------
+DBMS_OUTPUT.PUT_LINE('p_location_rec.country  	           : '||p_location_rec.country  	           );
+DBMS_OUTPUT.PUT_LINE('p_location_rec.ADDRESS1 	           : '||p_location_rec.ADDRESS1 			   );
+DBMS_OUTPUT.PUT_LINE('p_location_rec.ADDRESS2        	     : '||p_location_rec.ADDRESS2 			   );
+DBMS_OUTPUT.PUT_LINE('p_location_rec.ADDRESS3 		     : '||p_location_rec.ADDRESS3 			   );
+DBMS_OUTPUT.PUT_LINE('p_location_rec.ADDRESS4 		     : '||p_location_rec.ADDRESS4 			   );
+DBMS_OUTPUT.PUT_LINE('p_location_rec.STATE    	     	     : '||p_location_rec.STATE    			   );
+DBMS_OUTPUT.PUT_LINE('p_location_rec.CITY                  : '||p_location_rec.CITY                   );
+DBMS_OUTPUT.PUT_LINE('p_location_rec.POSTAL_CODE           : '||p_location_rec.POSTAL_CODE            );
+DBMS_OUTPUT.PUT_LINE('p_location_rec.orig_system_reference : '||p_location_rec.orig_system_reference  );
+
+---------------------------------------------------------------------------------------------------
+--p_cust_acct_site_rec
+---------------------------------------------------------------------------------------------------
+DBMS_OUTPUT.PUT_LINE('p_cust_acct_site_rec.status                    : '||p_cust_acct_site_rec.status                    );
+DBMS_OUTPUT.PUT_LINE('p_cust_acct_site_rec.org_id                    : '||p_cust_acct_site_rec.org_id                    );
+DBMS_OUTPUT.PUT_LINE('p_cust_acct_site_rec.global_attribute_category : '||p_cust_acct_site_rec.global_attribute_category );
+DBMS_OUTPUT.PUT_LINE('p_cust_acct_site_rec.global_attribute2         : '||p_cust_acct_site_rec.global_attribute2         );
+DBMS_OUTPUT.PUT_LINE('p_cust_acct_site_rec.global_attribute3         : '||p_cust_acct_site_rec.global_attribute3         );
+DBMS_OUTPUT.PUT_LINE('p_cust_acct_site_rec.global_attribute4         : '||p_cust_acct_site_rec.global_attribute4         );
+DBMS_OUTPUT.PUT_LINE('p_cust_acct_site_rec.global_attribute5         : '||p_cust_acct_site_rec.global_attribute5         );
+DBMS_OUTPUT.PUT_LINE('p_cust_acct_site_rec.global_attribute6         : '||p_cust_acct_site_rec.global_attribute6         );
+DBMS_OUTPUT.PUT_LINE('p_cust_acct_site_rec.global_attribute7         : '||p_cust_acct_site_rec.global_attribute7         );
+DBMS_OUTPUT.PUT_LINE('p_cust_acct_site_rec.global_attribute8         : '||p_cust_acct_site_rec.global_attribute8         );
+DBMS_OUTPUT.PUT_LINE('p_cust_acct_site_rec.global_attribute10        : '||p_cust_acct_site_rec.global_attribute10        );
+DBMS_OUTPUT.PUT_LINE('p_cust_acct_site_rec.global_attribute13        : '||p_cust_acct_site_rec.global_attribute13        );
+DBMS_OUTPUT.PUT_LINE('p_cust_acct_site_rec.ATTRIBUTE1                : '||p_cust_acct_site_rec.ATTRIBUTE1                );
+DBMS_OUTPUT.PUT_LINE('p_cust_acct_site_rec.ATTRIBUTE2                : '||p_cust_acct_site_rec.ATTRIBUTE2                );
+DBMS_OUTPUT.PUT_LINE('p_cust_acct_site_rec.ORIG_SYSTEM_REFERENCE     : '||p_cust_acct_site_rec.ORIG_SYSTEM_REFERENCE     );
+
+---------------------------------------------------------------------------------------------------
+--p_cust_site_use_rec
+---------------------------------------------------------------------------------------------------
+DBMS_OUTPUT.PUT_LINE('p_cust_site_use_rec.site_use_code          : '||p_cust_site_use_rec.site_use_code         );
+DBMS_OUTPUT.PUT_LINE('p_cust_site_use_rec.location               : '||p_cust_site_use_rec.location              );
+DBMS_OUTPUT.PUT_LINE('p_cust_site_use_rec.bill_to_site_use_id    : '||p_cust_site_use_rec.bill_to_site_use_id   );
+DBMS_OUTPUT.PUT_LINE('p_cust_site_use_rec.territory_id           : '||p_cust_site_use_rec.territory_id          );
+DBMS_OUTPUT.PUT_LINE('p_cust_site_use_rec.primary_salesrep_id    : '||p_cust_site_use_rec.primary_salesrep_id   );
+DBMS_OUTPUT.PUT_LINE('p_cust_site_use_rec.orig_system_reference  : '||p_cust_site_use_rec.orig_system_reference );
+
+---------------------------------------------------------------------------------------------------
+--p_customer_profile_rec
+---------------------------------------------------------------------------------------------------
+DBMS_OUTPUT.PUT_LINE('p_customer_profile_rec.profile_class_id: '||p_customer_profile_rec.profile_class_id );
+DBMS_OUTPUT.PUT_LINE('p_customer_profile_rec.standard_terms  : '||p_customer_profile_rec.standard_terms   );
+
+---------------------------------------------------------------------------------------------------
+--p_customer_profile_rec
+---------------------------------------------------------------------------------------------------
+DBMS_OUTPUT.PUT_LINE('p_payment_method_rec.receipt_method_name: '||p_payment_method_rec.receipt_method_name );
+
+---------------------------------------------------------------------------------------------------
+--p_person_rec
+---------------------------------------------------------------------------------------------------
+DBMS_OUTPUT.PUT_LINE('p_person_rec.PERSON_LAST_NAME: '||p_person_rec.PERSON_LAST_NAME );
+
+---------------------------------------------------------------------------------------------------
+--p_relationship_rec
+---------------------------------------------------------------------------------------------------
+DBMS_OUTPUT.PUT_LINE('p_relationship_rec.subject_type          : '||p_relationship_rec.subject_type       );
+DBMS_OUTPUT.PUT_LINE('p_relationship_rec.subject_table_name    : '||p_relationship_rec.subject_table_name );
+DBMS_OUTPUT.PUT_LINE('p_relationship_rec.object_type           : '||p_relationship_rec.object_type        );
+DBMS_OUTPUT.PUT_LINE('p_relationship_rec.relationship_code     : '||p_relationship_rec.relationship_code  );
+DBMS_OUTPUT.PUT_LINE('p_relationship_rec.object_table_name     : '||p_relationship_rec.object_table_name  );
+
+---------------------------------------------------------------------------------------------------
+--p_contact_point_rec
+---------------------------------------------------------------------------------------------------
+DBMS_OUTPUT.PUT_LINE('p_contact_point_rec.owner_table_name: '||p_contact_point_rec.owner_table_name );
+DBMS_OUTPUT.PUT_LINE('p_Contact_point_rec.status          : '||p_Contact_point_rec.status           );
+
+---------------------------------------------------------------------------------------------------
+--phone_rec
+---------------------------------------------------------------------------------------------------
+DBMS_OUTPUT.PUT_LINE('p_phone_rec.phone_line_type         : '||p_phone_rec.phone_line_type     );
+DBMS_OUTPUT.PUT_LINE('p_phone_rec.phone_country_code      : '||p_phone_rec.phone_country_code  );
+DBMS_OUTPUT.PUT_LINE('p_phone_rec.phone_area_code         : '||p_phone_rec.phone_area_code     );
+DBMS_OUTPUT.PUT_LINE('p_phone_rec.phone_country_code      : '||p_phone_rec.phone_country_code  );
+
+---------------------------------------------------------------------------------------------------
+--p_email_rec
+---------------------------------------------------------------------------------------------------
+DBMS_OUTPUT.PUT_LINE('p_email_rec.email_address: '||p_email_rec.email_address  );
+
+---------------------------------------------------------------------------------------------------
+--PARAMETROS DE SAIDA DO EBS => CADASTRO DE CLIENTE
+---------------------------------------------------------------------------------------------------
+      DBMS_OUTPUT.PUT_LINE('');
+      DBMS_OUTPUT.PUT_LINE('###########################################################################################');
+      DBMS_OUTPUT.PUT_LINE('###########   PARAMETROS DE SAIDA DO EBS => CADASTRO DE CLIENTE ###########################');
+      DBMS_OUTPUT.PUT_LINE('###########################################################################################');
+	DBMS_OUTPUT.PUT_LINE('');
+      DBMS_OUTPUT.PUT_LINE('X_ACCOUNT_NUMBER = '                     || P_EXIT_REC.X_ACCOUNT_NUMBER);
+	DBMS_OUTPUT.PUT_LINE('X_PARTY_ID_CUST_ACCOUNT = '              || P_EXIT_REC.X_PARTY_ID_CUST_ACCOUNT);
+	DBMS_OUTPUT.PUT_LINE('X_PARTY_NUMBER_CUST_ACCOUNT = '          || P_EXIT_REC.X_PARTY_NUMBER_CUST_ACCOUNT);
+	DBMS_OUTPUT.PUT_LINE('X_PROFILE_ID_CUST_ACCOUNT = '            || P_EXIT_REC.X_PROFILE_ID_CUST_ACCOUNT);
+	DBMS_OUTPUT.PUT_LINE('X_RETURN_STATUS_CUST_ACCOUNT = '         || P_EXIT_REC.X_RETURN_STATUS_CUST_ACCOUNT);
+	DBMS_OUTPUT.PUT_LINE('X_MSG_COUNT_CUST_ACCOUNT = '             || P_EXIT_REC.X_MSG_COUNT_CUST_ACCOUNT);
+	DBMS_OUTPUT.PUT_LINE('X_MSG_DATA_CUST_ACCOUNT = '              || P_EXIT_REC.X_MSG_DATA_CUST_ACCOUNT);
+	DBMS_OUTPUT.PUT_LINE('X_LOCATION_ID = '                        || P_EXIT_REC.X_LOCATION_ID);
+	DBMS_OUTPUT.PUT_LINE('X_RETURN_STATUS_LOCATION = '             || P_EXIT_REC.X_RETURN_STATUS_LOCATION);
+	DBMS_OUTPUT.PUT_LINE('X_MSG_COUNT_LOCATION = '                 || P_EXIT_REC.X_MSG_COUNT_LOCATION);
+	DBMS_OUTPUT.PUT_LINE('X_MSG_DATA_LOCATION = '                  || P_EXIT_REC.X_MSG_DATA_LOCATION);
+	DBMS_OUTPUT.PUT_LINE('X_PARTY_SITE_ID = '                      || P_EXIT_REC.X_PARTY_SITE_ID);
+	DBMS_OUTPUT.PUT_LINE('X_PARTY_SITE_NUMBER = '                  || P_EXIT_REC.X_PARTY_SITE_NUMBER);
+	DBMS_OUTPUT.PUT_LINE('X_RETURN_STATUS_PARTY_SITE = '           || P_EXIT_REC.X_RETURN_STATUS_PARTY_SITE);
+	DBMS_OUTPUT.PUT_LINE('X_MSG_COUNT_PARTY_SITE = '               || P_EXIT_REC.X_MSG_COUNT_PARTY_SITE);
+	DBMS_OUTPUT.PUT_LINE('X_MSG_DATA_PARTY_SITE = '                || P_EXIT_REC.X_MSG_DATA_PARTY_SITE);
+	DBMS_OUTPUT.PUT_LINE('X_CUST_ACCT_SITE_ID = '                  || P_EXIT_REC.X_CUST_ACCT_SITE_ID);
+	DBMS_OUTPUT.PUT_LINE('X_RETURN_STATUS_ACCT_SITE = '            || P_EXIT_REC.X_RETURN_STATUS_ACCT_SITE);
+	DBMS_OUTPUT.PUT_LINE('X_MSG_COUNT_ACCT_SITE = '                || P_EXIT_REC.X_MSG_COUNT_ACCT_SITE);
+	DBMS_OUTPUT.PUT_LINE('X_MSG_DATA_ACCT_SITE = '                 || P_EXIT_REC.X_MSG_DATA_ACCT_SITE);
+	DBMS_OUTPUT.PUT_LINE('X_SITE_USE_ID = '                        || P_EXIT_REC.X_SITE_USE_ID);
+	DBMS_OUTPUT.PUT_LINE('X_RETURN_STATUS_SITE_USE = '             || P_EXIT_REC.X_RETURN_STATUS_SITE_USE);
+	DBMS_OUTPUT.PUT_LINE('X_MSG_COUNT_SITE_USE = '                 || P_EXIT_REC.X_MSG_COUNT_SITE_USE);
+	DBMS_OUTPUT.PUT_LINE('X_MSG_DATA_SITE_USE = '                  || P_EXIT_REC.X_MSG_DATA_SITE_USE);
+	DBMS_OUTPUT.PUT_LINE('X_CUST_ACCOUNT_PROFILE_ID = '            || P_EXIT_REC.X_CUST_ACCOUNT_PROFILE_ID);
+	DBMS_OUTPUT.PUT_LINE('X_RETURN_STATUS_CUST_ACCOUNT_PROFILE = ' || P_EXIT_REC.X_RETURN_STATUS_CUST_ACCOUNT_PROFILE);
+	DBMS_OUTPUT.PUT_LINE('X_MSG_COUNT_CUST_ACCOUNT_PROFILE = '     || P_EXIT_REC.X_MSG_COUNT_CUST_ACCOUNT_PROFILE);
+	DBMS_OUTPUT.PUT_LINE('X_MSG_DATA_CUST_ACCOUNT_PROFILE = '      || P_EXIT_REC.X_MSG_DATA_CUST_ACCOUNT_PROFILE);
+	DBMS_OUTPUT.PUT_LINE('X_CUST_RECEIPT_METHOD_ID = '             || P_EXIT_REC.X_CUST_RECEIPT_METHOD_ID);
+	DBMS_OUTPUT.PUT_LINE('X_RETURN_STATUS_PAYMENT_METHOD = '       || P_EXIT_REC.X_RETURN_STATUS_PAYMENT_METHOD);
+	DBMS_OUTPUT.PUT_LINE('X_MSG_COUNT_PAYMENT_METHOD = '           || P_EXIT_REC.X_MSG_COUNT_PAYMENT_METHOD);
+	DBMS_OUTPUT.PUT_LINE('X_MSG_DATA_PAYMENT_METHOD = '            || P_EXIT_REC.X_MSG_DATA_PAYMENT_METHOD);
+	DBMS_OUTPUT.PUT_LINE('X_PARTY_ID = '                           || P_EXIT_REC.X_PARTY_ID);
+	DBMS_OUTPUT.PUT_LINE('X_PARTY_NUMBER = '                       || P_EXIT_REC.X_PARTY_NUMBER);
+	DBMS_OUTPUT.PUT_LINE('X_PROFILE_ID_PARTY = '                   || P_EXIT_REC.X_PROFILE_ID_PARTY);
+	DBMS_OUTPUT.PUT_LINE('X_RETURN_STATUS_PARTY = '                || P_EXIT_REC.X_RETURN_STATUS_PARTY);
+	DBMS_OUTPUT.PUT_LINE('X_MSG_COUNT_PARTY = '                    || P_EXIT_REC.X_MSG_COUNT_PARTY);
+	DBMS_OUTPUT.PUT_LINE('X_MSG_DATA_PARTY = '                     || P_EXIT_REC.X_MSG_DATA_PARTY);
+	DBMS_OUTPUT.PUT_LINE('X_RELATIONSHIP_ID = '                    || P_EXIT_REC.X_RELATIONSHIP_ID);
+	DBMS_OUTPUT.PUT_LINE('X_PARTY_ID_RELATIONSHIP = '              || P_EXIT_REC.X_PARTY_ID_RELATIONSHIP);
+	DBMS_OUTPUT.PUT_LINE('X_PARTY_NUMBER_RELATIONSHIP = '          || P_EXIT_REC.X_PARTY_NUMBER_RELATIONSHIP);
+	DBMS_OUTPUT.PUT_LINE('X_RETURN_STATUS_RELATIONSHIP = '         || P_EXIT_REC.X_RETURN_STATUS_RELATIONSHIP);
+	DBMS_OUTPUT.PUT_LINE('X_MSG_COUNT_RELATIONSHIP = '             || P_EXIT_REC.X_MSG_COUNT_RELATIONSHIP);
+	DBMS_OUTPUT.PUT_LINE('X_MSG_DATA_RELATIONSHIP = '              || P_EXIT_REC.X_MSG_DATA_RELATIONSHIP);
+	DBMS_OUTPUT.PUT_LINE('X_CONTACT_POINT_ID = '                   || P_EXIT_REC.X_CONTACT_POINT_ID);
+	DBMS_OUTPUT.PUT_LINE('X_RETURN_STATUS_CONTACT_POINT = '        || P_EXIT_REC.X_RETURN_STATUS_CONTACT_POINT);
+	DBMS_OUTPUT.PUT_LINE('X_MSG_COUNT_CONTACT_POINT = '            || P_EXIT_REC.X_MSG_COUNT_CONTACT_POINT);
+	DBMS_OUTPUT.PUT_LINE('X_MSG_DATA_CONTACT_POINT = '             || P_EXIT_REC.X_MSG_DATA_CONTACT_POINT);
+
+END;
+
+
+--select * from ca.cp_pessoa p where p.nm_pessoa like 'LARISSA SANTIAGO LA%';
+--SELECT * FROM CA.candidato_work CW WHERE CW.NR_CPF = 625291643;CW.nm_candidato LIKE '%LÁZARO%';
+--SELECT * FROM CA.cp_pessoa_usuario U WHERE U.id_pessoa = 378147;
+--SELECT * FROM CA.ALUNO A WHERE A.NR_MATRICULA = 1610543 ;--152884;
+--SELECT * FROM CA.cp_pessoa_logradouro L WHERE L.ID_PESSOA = 378147;
+--SELECT * FROM ;
+--SELECT * FROM CA.CP_PESSOA_FISICA PF 
+--INNER JOIN CA.CANDIDATOWHERE PF.ID_PESSOA_FISICA = 378147
+--MATRICULA: 63100112 ID PESSOA: 378147

@@ -1,0 +1,89 @@
+--set serveroutput on
+   /*
+   {
+   "idBandeiraCartao":2,
+   "valorMovimento":697.20,
+   "nrNsu":123,
+   "cdFaixaAdquirente":1,
+            1	GetNet
+   "qtdParcelas":3,
+   "idFormaPagamento":1,
+   "dtHoraMovimento":"03/01/21",
+   "cdFaixaMovimento":2,
+            1	Operação concluída
+            2	Falha na operação
+            3	Estornado
+            4	Operação em andamento
+   "nrPrimeirosDigitoscartao":511477,
+   "dsErroFalhaOperacao":"Erro ao efetuar transação de crédito. Saldo Insuficiente: TRANSACAO NAO APROVADA. LIMITE DIA EXCEDIDO. CONTATAR O EMISSOR [ECOM - 51]",
+   "cdFaixaOrigem":2,
+            1	CRM
+            2	UOL
+   "nrAutorizacao":741258963258741,
+   "idCartaoMovimentoEstorno":null,
+   "idPessoaCliente":null,
+   "cdEstabCliente":null,
+   "nrMatricCliente":null,
+   "cdFaixaTipoMovimento":1,  
+            1	Transação de crédito	
+            2	Transação de débito	
+            3	Transação de estorno	
+   "dsObservacao":null
+}
+   */
+
+DECLARE
+  P_JSON_BAIXA_CARTAO CLOB;
+  P_ID_CARTAO_MOVIMENTO NUMBER;
+  P_ST_RETORNO VARCHAR2(200);
+  P_DS_RETORNO VARCHAR2(200);
+BEGIN
+  P_JSON_BAIXA_CARTAO := '{
+   "idBandeiraCartao":2,
+   "valorMovimento":100,
+   "nrNsu":"123123",
+   "cdFaixaAdquirente":1,
+   "qtdParcelas":1,
+   "idFormaPagamento":1,
+   "dtHoraMovimento":"20/08/22",
+   "cdFaixaMovimento":1,
+   "nrPrimeirosDigitoscartao":"511400",
+   "dsErroFalhaOperacao":"Transação realizada com sucesso",
+   "cdFaixaOrigem":1,
+   "nrAutorizacao":"741258963258741",
+   "idCartaoMovimentoEstorno":null,
+   "idPessoaCliente":null,
+   "cdEstabCliente":null,
+   "nrMatricCliente":null,
+   "cdFaixaTipoMovimento":1,
+   "dsObservacao":null,
+   "idTitulo":1541399   
+}';
+
+  PK_CTR_CARTAO_MOVIMENTO_CLC.P_INCLUIR_CARTAO_MOVIMENTO(
+    P_JSON_BAIXA_CARTAO => P_JSON_BAIXA_CARTAO,
+    P_ID_CARTAO_MOVIMENTO => P_ID_CARTAO_MOVIMENTO,
+    P_ST_RETORNO => P_ST_RETORNO,
+    P_DS_RETORNO => P_DS_RETORNO
+  );
+
+DBMS_OUTPUT.PUT_LINE('P_ID_CARTAO_MOVIMENTO = ' || P_ID_CARTAO_MOVIMENTO);
+
+  :P_ID_CARTAO_MOVIMENTO := P_ID_CARTAO_MOVIMENTO;
+
+DBMS_OUTPUT.PUT_LINE('P_ST_RETORNO = ' || P_ST_RETORNO);
+
+  :P_ST_RETORNO := P_ST_RETORNO;
+
+DBMS_OUTPUT.PUT_LINE('P_DS_RETORNO = ' || P_DS_RETORNO);
+
+  :P_DS_RETORNO := P_DS_RETORNO;
+ 
+END;
+
+P_ID_CARTAO_MOVIMENTO = 3537
+P_ST_RETORNO = S
+P_DS_RETORNO = Movimento de cartão cadastrado com sucesso => Origem: CRM - Adquirente: GetNet - Status: Operação concluída - Tipo de Movimento: Transação de crédito
+
+
+Procedimento PL/SQL concluído com sucesso.

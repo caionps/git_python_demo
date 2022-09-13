@@ -1,0 +1,31 @@
+DECLARE
+  P_JSON_BAIXA_CARTAO CLOB;
+  P_ST_RETORNO VARCHAR2(200);
+  P_DS_RETORNO VARCHAR2(200);
+BEGIN
+  P_JSON_BAIXA_CARTAO := '{
+                               "processos":{
+                                  "cdPeriodo":221,       
+                                  "nrProcesso":5124826   --parametro de sáida da procedure PK_FINANCEIRO_CRM_API.P_GERAR_FINANCEIRO_INSCRICAO
+                               },
+                               "idCartaoMovimento":3525, --parametro de sáida da procedure PK_CTR_CARTAO_MOVIMENTO_API.P_INCLUIR_CARTAO_MOVIMENTO
+                               "titulos":{
+                                  "id_titulo":1541399    --parametro de sáida da procedure PK_FINANCEIRO_CRM_API.P_GERAR_FINANCEIRO_INSCRICAO
+                               }
+                            }';
+
+  PK_CTR_BAIXA_API.P_BAIXA_CARTAO(
+    P_JSON_BAIXA_CARTAO => P_JSON_BAIXA_CARTAO,
+    P_ST_RETORNO => P_ST_RETORNO,
+    P_DS_RETORNO => P_DS_RETORNO
+  );
+
+DBMS_OUTPUT.PUT_LINE('P_ST_RETORNO = ' || P_ST_RETORNO);
+ 
+  :P_ST_RETORNO := P_ST_RETORNO;
+
+DBMS_OUTPUT.PUT_LINE('P_DS_RETORNO = ' || P_DS_RETORNO);
+
+  :P_DS_RETORNO := P_DS_RETORNO;
+
+END;
